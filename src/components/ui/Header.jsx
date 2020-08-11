@@ -123,7 +123,7 @@ export default function Header(props) {
                 aria-haspopup={anchorEl ? true : undefined}
                 className={classes.tab}
                 component={Link}
-                onMouseOver={event => handleClick(event)}
+                onMouseOver={(event) => handleClick(event)}
                 to='/services'
                 label='Services'
               />
@@ -153,10 +153,53 @@ export default function Header(props) {
             >
               Free Estimate
             </Button>
-            <Menu id='simple-menu' anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}>
-              <MenuItem onClick={handleClose}>Custom Software Development</MenuItem>
-              <MenuItem onClick={handleClose}>Mobile App</MenuItem>
-              <MenuItem onClick={handleClose}>Website Development</MenuItem>
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+            >
+              <MenuItem
+                component={Link}
+                to='/services'
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Services
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to='/customsoftware'
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Custom Software Development
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to='/mobileapps'
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Mobile App
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to='/websites'
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Website Development
+              </MenuItem>
             </Menu>
           </Toolbar>
         </AppBar>
